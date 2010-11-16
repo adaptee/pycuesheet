@@ -227,7 +227,15 @@ def removeBOM(data):
     return data[1:] if data[0] == BOM else data
 
 def parsecuedata( cuedata):
-    assert type(cuedata) == unicode
+    """
+        parse cuedata
+    """
+    if type(cuedata) != unicode:
+        try:
+            cuedata = cuedata.decode( default_encoding )
+        except UnicodeDecodeError:
+            raise Exception("""The input data is not unicode and automatic
+                    conversion has failed. Please check your data.""")
 
     cuedata = removeBOM(cuedata)
     return cueparser.parse(cuedata)
