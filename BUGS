@@ -1,0 +1,5 @@
+- can't parse cuefiles containing multiple 'FILE' command
+
+- no docstring anywhere
+
+- naming scheme is kind of ugly
